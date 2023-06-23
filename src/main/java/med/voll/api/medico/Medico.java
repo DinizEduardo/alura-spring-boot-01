@@ -51,4 +51,14 @@ public class Medico {
     public int hashCode() {
         return getClass().hashCode();
     }
+
+    public void atualizarInformacoes(DadosAtualizacaoMedico dados) {
+        this.nome = dados.nome() != null ? dados.nome() : this.nome;
+
+        this.telefone = dados.telefone() != null ? dados.telefone() : this.telefone;
+
+        if (dados.endereco() != null) {
+            this.endereco.atualizarInformacoes(dados.endereco());
+        }
+    }
 }
